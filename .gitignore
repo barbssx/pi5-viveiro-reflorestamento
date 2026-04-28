@@ -1,0 +1,42 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+vendor/
+web/node_modules/
+api/vendor/
+
+# Builds
+dist/
+web/dist/
+api/public/build/
+api/public/hot
+
+# Local databases and caches
+*.sqlite
+api/database/*.sqlite
+.eslintcache
+.vite/
+.phpunit.result.cache
+.phpunit.cache/
+api/bootstrap/cache/*.php
+api/storage/*.key
+api/storage/logs/*
+api/storage/framework/cache/*
+api/storage/framework/sessions/*
+api/storage/framework/views/*
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

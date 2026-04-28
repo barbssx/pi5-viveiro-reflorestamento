@@ -1,8 +1,10 @@
-# API Reflorestamento
+# API
 
-API Laravel para cadastro de dispositivos e leituras dos sensores do viveiro.
+Backend do projeto, feito em Laravel.
 
-## Rodando localmente
+Aqui ficam os dispositivos do viveiro e as leituras enviadas pelos sensores.
+
+## Rodando
 
 ```sh
 composer install
@@ -12,18 +14,15 @@ php artisan migrate --seed
 php artisan serve
 ```
 
-Por padrao, a API fica disponivel em `http://localhost:8000/api`.
+Por padrão, a API sobe em:
 
-## Rotas principais
+```txt
+http://localhost:8000
+```
 
-- `GET /api/teste`: verifica se a API esta respondendo.
-- `GET /api/devices`: lista dispositivos.
-- `POST /api/devices`: cria um dispositivo.
-- `GET /api/readings`: lista leituras.
-- `POST /api/readings`: cria uma leitura.
-- `GET /api/readings/latest`: retorna a leitura mais recente usada pelo dashboard web.
+## Enviando uma leitura
 
-## Exemplo de leitura
+Exemplo de corpo para cadastrar uma leitura:
 
 ```json
 {
@@ -42,3 +41,4 @@ Por padrao, a API fica disponivel em `http://localhost:8000/api`.
 ```sh
 php artisan test
 ```
+

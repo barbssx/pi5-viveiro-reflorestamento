@@ -1,17 +1,19 @@
 # PI5 Viveiro Reflorestamento
 
-Monorepo do projeto de monitoramento de viveiro para reflorestamento.
+Projeto do PI para acompanhar dados de sensores em um viveiro de mudas.
 
-## Estrutura
+A ideia é simples: a API guarda os dispositivos e as leituras dos sensores, e o painel web mostra essas informações de um jeito mais fácil de acompanhar.
+
+## Pastas
 
 ```txt
-api/  API Laravel para dispositivos e leituras dos sensores
-web/  Dashboard Vue/Vite para acompanhamento operacional
+api/  backend em Laravel
+web/  frontend em Vue + Vite
 ```
 
-## Rodando localmente
+## Como rodar
 
-### API
+Primeiro suba a API:
 
 ```sh
 cd api
@@ -22,13 +24,7 @@ php artisan migrate --seed
 php artisan serve
 ```
 
-Por padrao, a API fica em:
-
-```txt
-http://localhost:8000
-```
-
-### Web
+Depois suba o front:
 
 ```sh
 cd web
@@ -37,7 +33,7 @@ npm install
 npm run dev
 ```
 
-No `.env` do frontend, configure:
+No `.env` do front, a URL da API precisa ficar assim quando estiver rodando local:
 
 ```sh
 VITE_API_URL=http://localhost:8000/api
@@ -45,51 +41,41 @@ VITE_API_URL=http://localhost:8000/api
 
 ## Deploy
 
-### Vercel
+O plano é:
 
-Configure o projeto apontando para:
+- `web/` no Vercel
+- `api/` no Railway
 
-```txt
-Root Directory: web
-Build Command: npm run build
-Output Directory: dist
-```
+No Vercel, o diretório raiz do projeto deve ser `web`.
 
-Variavel de ambiente:
+No Railway, o diretório raiz deve ser `api`.
 
-```txt
-VITE_API_URL=https://sua-api.railway.app/api
-```
-
-### Railway
-
-Configure o servico apontando para:
+Depois que a API estiver publicada, coloque a URL dela no Vercel:
 
 ```txt
-Root Directory: api
-Start Command: php artisan serve --host=0.0.0.0 --port=$PORT
+VITE_API_URL=https://url-da-api-no-railway/api
 ```
 
-Variaveis importantes:
+E no Railway coloque a URL do front:
 
 ```txt
-APP_ENV=production
-APP_DEBUG=false
-APP_URL=https://sua-api.railway.app
-FRONTEND_URL=https://seu-web.vercel.app
+FRONTEND_URL=https://url-do-front-no-vercel
 ```
 
-Configure tambem as variaveis de banco conforme o banco usado no Railway.
+## Antes de enviar alterações
 
-## Checklist antes do commit
+No front:
 
 ```sh
-cd web && npm run build && npm run lint
+cd web
+npm run build
+npm run lint
 ```
 
-Para a API, apos instalar dependencias:
+Na API:
 
 ```sh
-cd api && php artisan test
+cd api
+php artisan test
 ```
 

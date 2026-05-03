@@ -1,81 +1,84 @@
-# PI5 Viveiro Reflorestamento
+# 🌱 Sistema IoT para Viveiros de Reflorestamento
 
-Projeto do PI para acompanhar dados de sensores em um viveiro de mudas.
+Projeto Integrador em Computação V desenvolvido para a Universidade Virtual do Estado de São Paulo (UNIVESP), com foco na construção de uma solução IoT para monitoramento ambiental em viveiros de mudas florestais.
 
-A ideia é simples: a API guarda os dispositivos e as leituras dos sensores, e o painel web mostra essas informações de um jeito mais fácil de acompanhar.
+O sistema tem como objetivo acompanhar dados de sensores em tempo real, como umidade do solo, temperatura do ar, umidade do ar e status da irrigação, auxiliando na tomada de decisão e na automação de processos em viveiros de reflorestamento.
 
-## Pastas
+---
 
-```txt
-api/  backend em Laravel
-web/  frontend em Vue + Vite
-```
+## 📌 Sobre o Projeto
 
-## Como rodar
+O projeto nasceu a partir da interação com a comunidade externa, mais especificamente com o Viveiro Campos Alvorada, localizado em Teodoro Sampaio - SP.
 
-Primeiro suba a API:
+Durante o levantamento inicial, foi identificado que o cultivo de mudas nativas exige acompanhamento frequente das condições ambientais, inclusive em finais de semana e feriados. A falta de monitoramento pode causar perda de mudas por seca, excesso de água ou variações inadequadas de temperatura e umidade.
 
-```sh
-cd api
-cp .env.example .env
-composer install
-php artisan key:generate
-php artisan migrate --seed
-php artisan serve
-```
+A solução proposta consiste em um sistema IoT capaz de capturar, armazenar, processar e exibir dados ambientais, permitindo que o responsável pelo viveiro acompanhe remotamente as condições do ambiente e tenha suporte para decisões relacionadas à irrigação.
 
-Depois suba o front:
+---
 
-```sh
-cd web
-cp .env.example .env
-npm install
-npm run dev
-```
+## 🎯 Objetivo Geral
 
-No `.env` do front, a URL da API precisa ficar assim quando estiver rodando local:
+Desenvolver um sistema IoT com captura, análise e processamento de dados para monitorar, em tempo real, as condições ambientais de um viveiro de mudas florestais, contribuindo para a otimização da produção e possibilitando a automação de processos de irrigação.
 
-```sh
-VITE_API_URL=http://localhost:8000/api
-```
+---
 
-## Deploy
+## 🧩 Problema Investigado
 
-O plano é:
+Como acompanhar em tempo real as condições ambientais, como temperatura e umidade, em um viveiro de mudas florestais, evitando perdas causadas por seca, excesso de água no solo ou ausência de monitoramento constante?
 
-- `web/` no Vercel
-- `api/` no Railway
+---
 
-No Vercel, o diretório raiz do projeto deve ser `web`.
+## 🏫 Instituição
 
-No Railway, o diretório raiz deve ser `api`.
+**Universidade Virtual do Estado de São Paulo — UNIVESP**
+---
 
-Depois que a API estiver publicada, coloque a URL dela no Vercel:
+## 👥 Integrantes
 
-```txt
-VITE_API_URL=https://url-da-api-no-railway/api
-```
+- Barbara Sthefani Leite Silva
+- Gustavo da Silva Aguiar Ribeiro
+- João Augusto Caminhoto
+- Leonardo de Oliveira Lopes
+- Mayara Ribeiro Brite
+- Renaisa Alves Silva
+- Renan Fortaleza de Carvalho
 
-E no Railway coloque a URL do front:
+Orientadora: Larissa Bistafa Antunes de Oliveira
 
-```txt
-FRONTEND_URL=https://url-do-front-no-vercel
-```
+Polos envolvidos:
 
-## Antes de enviar alterações
+- Presidente Prudente - SP
+- Teodoro Sampaio - SP
+- Rosana - SP
 
-No front:
+---
 
-```sh
-cd web
-npm run build
-npm run lint
-```
+## 🛠️ Tecnologias Utilizadas
 
-Na API:
+### Backend
 
-```sh
-cd api
-php artisan test
-```
+- PHP
+- Laravel
+- MySQL
+- Eloquent ORM
+- API REST
+- Laravel Migrations
+- Laravel Seeders
+
+### Frontend
+
+- Vue 3
+- Vite
+- JavaScript
+- Axios
+- Vue Router
+- CSS
+
+### IoT e Hardware
+
+- Arduino com conectividade Wi-Fi
+- Sensores ambientais
+- Sensor de umidade do solo
+- Sensor de temperatura e umidade do ar
+- Integração planejada com plataforma em nuvem para recebimento dos dados
 

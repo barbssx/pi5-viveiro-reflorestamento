@@ -2,7 +2,8 @@ import axios from 'axios'
 
 function getApiBaseUrl() {
   const configuredUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
-  const normalizedUrl = configuredUrl.replace(/\/+$/, '')
+  const trimmedUrl = configuredUrl.trim().replace(/\/+$/, '')
+  const normalizedUrl = /^https?:\/\//i.test(trimmedUrl) ? trimmedUrl : `https://${trimmedUrl}`
 
   return normalizedUrl.endsWith('/api') ? normalizedUrl : `${normalizedUrl}/api`
 }

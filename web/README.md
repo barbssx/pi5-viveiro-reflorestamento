@@ -25,6 +25,9 @@ o frontend normaliza automaticamente:
 VITE_API_URL=https://sua-api.up.railway.app/api
 ```
 
+Inclua sempre `https://`. Se esquecer, o frontend ainda tenta corrigir, mas a
+variavel correta evita chamadas relativas dentro do dominio da Vercel.
+
 ## Comandos úteis
 
 ```sh

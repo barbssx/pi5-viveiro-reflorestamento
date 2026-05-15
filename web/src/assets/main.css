@@ -20,6 +20,5 @@ a,
 }
 
 :root {
-  --dim-grey: #696969;
-  --grey: #808080;
+  --focus-ring: 0 0 0 3px rgba(79, 138, 168, 0.25);
 }

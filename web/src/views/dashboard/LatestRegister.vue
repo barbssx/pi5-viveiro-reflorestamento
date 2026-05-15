@@ -476,21 +476,21 @@ export default {
 
 <style scoped>
 .dashboard-reading {
-  --tone-color: #9aa3ad;
+  --tone-color: var(--tone-neutral);
   display: grid;
   gap: 18px;
 }
 
 .dashboard-reading[data-tone='success'] {
-  --tone-color: #9aaa8f;
+  --tone-color: var(--tone-success);
 }
 
 .dashboard-reading[data-tone='warning'] {
-  --tone-color: #c3a86d;
+  --tone-color: var(--tone-warning);
 }
 
 .dashboard-reading[data-tone='danger'] {
-  --tone-color: #c17878;
+  --tone-color: var(--tone-danger);
 }
 
 .dashboard-panel {
@@ -506,21 +506,23 @@ export default {
   gap: 24px;
   padding: 24px;
   border-radius: 8px;
-  background: linear-gradient(135deg, rgba(37, 40, 47, 0.98), rgba(50, 48, 54, 0.94));
-  border: 1px solid rgba(201, 191, 166, 0.16);
+  background:
+    linear-gradient(135deg, rgba(20, 49, 36, 0.96), rgba(36, 84, 63, 0.92)),
+    var(--color-primary-strong);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-left: 6px solid var(--tone-color);
-  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 20px 46px rgba(28, 50, 36, 0.22);
 }
 
 .error-card {
-  border-left-color: #c17878;
+  border-left-color: var(--tone-danger);
 }
 
 .feedback-eyebrow {
   font-size: 0.82rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #b9b0a0;
+  color: #dfe9d6;
   margin-bottom: 10px;
   font-weight: 800;
 }
@@ -535,13 +537,13 @@ export default {
   line-height: 1.2;
   font-family: 'Avenir Next', 'Trebuchet MS', sans-serif;
   font-weight: 800;
-  color: #eee7dc;
+  color: var(--color-inverse);
 }
 
 .hero-description,
 .feedback-card p,
 .summary-text {
-  color: #c7beb0;
+  color: #d9e4d3;
   font-size: 0.96rem;
   line-height: 1.6;
 }
@@ -569,7 +571,7 @@ export default {
 }
 
 .control-group label {
-  color: #b9b0a0;
+  color: #dfe9d6;
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -579,20 +581,30 @@ export default {
 .control-group select {
   width: 100%;
   min-height: 42px;
-  border: 1px solid rgba(201, 191, 166, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.26);
   border-radius: 8px;
-  background: #1c1f25;
-  color: #eee7dc;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-inverse);
   padding: 0 12px;
+}
+
+.control-group select option {
+  color: var(--color-ink);
+}
+
+.control-group select:focus-visible,
+.ghost-button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }
 
 .ghost-button {
   min-height: 42px;
   padding: 0 16px;
-  border: 1px solid rgba(238, 231, 220, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 8px;
-  background: rgba(238, 231, 220, 0.08);
-  color: #eee7dc;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-inverse);
   cursor: pointer;
   font-weight: 800;
 }
@@ -617,13 +629,14 @@ export default {
 .overview-item {
   padding: 16px;
   border-radius: 8px;
-  background: rgba(34, 37, 43, 0.78);
-  border: 1px solid rgba(201, 191, 166, 0.14);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 12px 26px var(--color-shadow);
 }
 
 .overview-item span {
   display: block;
-  color: #b1a898;
+  color: var(--color-muted);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -633,7 +646,7 @@ export default {
 .overview-item strong {
   display: block;
   margin-top: 8px;
-  color: #eee7dc;
+  color: var(--color-primary-strong);
   font-size: 1.15rem;
   font-weight: 850;
   overflow-wrap: anywhere;
@@ -662,24 +675,24 @@ export default {
   border-radius: 999px;
   font-size: 0.76rem;
   font-weight: 800;
-  background: rgba(190, 181, 158, 0.16);
-  color: #ddd4c7;
+  background: #e8ede4;
+  color: var(--color-muted-strong);
   white-space: nowrap;
 }
 
 .status-pill[data-tone='success'] {
-  background: rgba(154, 170, 143, 0.22);
-  color: #c7d3bc;
+  background: #dfe9d6;
+  color: #24543f;
 }
 
 .status-pill[data-tone='warning'] {
-  background: rgba(195, 168, 109, 0.22);
-  color: #e2cb91;
+  background: #f4e8c9;
+  color: #745316;
 }
 
 .status-pill[data-tone='danger'] {
-  background: rgba(193, 120, 120, 0.22);
-  color: #e0aaa8;
+  background: #f2d9d6;
+  color: #813a35;
 }
 
 .detail-list {
@@ -694,7 +707,7 @@ export default {
   justify-content: space-between;
   gap: 16px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(201, 191, 166, 0.12);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .detail-list li:last-child {
@@ -703,11 +716,11 @@ export default {
 }
 
 .detail-list span {
-  color: #b1a898;
+  color: var(--color-muted);
 }
 
 .detail-list strong {
-  color: #eee7dc;
+  color: var(--color-primary-strong);
   text-align: right;
   font-weight: 800;
 }
@@ -725,12 +738,12 @@ table {
 th,
 td {
   padding: 12px 10px;
-  border-bottom: 1px solid rgba(201, 191, 166, 0.12);
+  border-bottom: 1px solid var(--color-border);
   text-align: left;
 }
 
 th {
-  color: #b1a898;
+  color: var(--color-muted);
   font-size: 0.76rem;
   font-weight: 850;
   letter-spacing: 0.08em;
@@ -738,12 +751,12 @@ th {
 }
 
 td {
-  color: #e4ddd1;
+  color: var(--color-ink);
 }
 
 .empty-cell {
   text-align: center;
-  color: #b1a898;
+  color: var(--color-muted);
 }
 
 .device-grid {
@@ -756,18 +769,18 @@ td {
   gap: 14px;
   padding: 16px;
   border-radius: 8px;
-  background: rgba(34, 37, 43, 0.72);
-  border: 1px solid rgba(201, 191, 166, 0.12);
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
 }
 
 .device-card h4 {
-  color: #eee7dc;
+  color: var(--color-primary-strong);
   font-size: 1rem;
   font-weight: 850;
 }
 
 .device-card p {
-  color: #b1a898;
+  color: var(--color-muted);
   margin-top: 4px;
 }
 

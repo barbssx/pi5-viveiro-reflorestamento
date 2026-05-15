@@ -31,22 +31,22 @@ defineProps({
 .section-card {
   padding: 20px;
   border-radius: 8px;
-  border: 1px solid rgba(201, 191, 166, 0.14);
-  border-top: 4px solid var(--tone-color, #9aa3ad);
-  background: rgba(34, 37, 43, 0.82);
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--tone-color, var(--tone-neutral));
+  background: var(--color-surface);
+  box-shadow: 0 16px 34px var(--color-shadow);
 }
 
 .section-card[data-tone='success'] {
-  --tone-color: #9aaa8f;
+  --tone-color: var(--tone-success);
 }
 
 .section-card[data-tone='warning'] {
-  --tone-color: #c3a86d;
+  --tone-color: var(--tone-warning);
 }
 
 .section-card[data-tone='danger'] {
-  --tone-color: #c17878;
+  --tone-color: var(--tone-danger);
 }
 
 .section-header {
@@ -58,16 +58,16 @@ defineProps({
 .section-header h3 {
   font-size: 1.02rem;
   font-weight: 850;
-  color: #eee7dc;
+  color: var(--color-primary-strong);
 }
 
 .section-header p {
-  color: #b1a898;
+  color: var(--color-muted);
   font-size: 0.92rem;
   line-height: 1.45;
 }
 
 .section-content {
-  color: #e4ddd1;
+  color: var(--color-ink);
 }
 </style>
